@@ -397,6 +397,44 @@
       text-decoration: underline;
     }
 
+    .time-block.fuel-check {
+      border: 1px solid rgba(214, 130, 25, 0.6);
+      border-left: 4px solid #e08a1f;
+      background: rgba(255, 244, 220, 0.85);
+      box-shadow: 0 4px 14px rgba(214, 130, 25, 0.12);
+    }
+
+    .time-block.fuel-check .time,
+    .time-block.fuel-check h3 {
+      color: #b86a0c;
+    }
+
+    .time-block.fuel-check h3::before {
+      content: "⛽ ";
+    }
+
+    .fuel-note {
+      margin: 10px 0 0;
+      padding: 10px 12px;
+      border: 1px solid rgba(214, 130, 25, 0.5);
+      border-left: 3px solid #e08a1f;
+      border-radius: 6px;
+      background: rgba(255, 244, 220, 0.85);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .fuel-note::before {
+      content: "⛽ Fuel check — ";
+      font-weight: 850;
+      color: #b86a0c;
+    }
+
+    .fuel-note a {
+      color: #b86a0c;
+      text-decoration: underline;
+    }
+
     p:has(img),
     p.local-photo-grid {
       display: grid;
@@ -915,11 +953,11 @@
     </div>
   </div>
 
-  <div class="time-block">
+  <div class="time-block fuel-check">
     <div class="time">12:00-ish</div>
     <div>
       <h3>Fuel + stretch stop before Germany</h3>
-      <p>Make this a planned stop, not an emergency one. Best practical target: an Austrian town-side station around <a href="https://www.google.com/maps/search/petrol+station+Mondsee+Austria">Mondsee</a> / <a href="https://www.google.com/maps/search/petrol+station+Salzburg+Austria">Salzburg</a>, before the final run into Munich. It is not as cheap as Slovenia, but it avoids arriving in Munich on a low tank; skip German Autobahn fuel unless you have no choice.</p>
+      <p>Make this a planned stop, not an emergency one. Best practical target: <a href="https://www.google.com/maps/place/OMV+Tankstelle+Mondsee/@47.8569,13.3403,17z">OMV Tankstelle Mondsee, Steinerbach 1, 5310 Mondsee</a> right off the A1, or <a href="https://www.google.com/maps/place/Shell+Tankstelle+Salzburg+Alpenstra%C3%9Fe/@47.7793,13.0689,17z">Shell Salzburg-Alpenstraße 86, 5020 Salzburg</a> before the final run into Munich. It is not as cheap as Slovenia, but it avoids arriving in Munich on a low tank; skip German Autobahn fuel unless you have no choice.</p>
     </div>
   </div>
 
@@ -927,7 +965,8 @@
     <div class="time">15:30-ish</div>
     <div>
       <h3>Arrive in Munich</h3>
-      <p>Stay outside the low-emission zone and park near the venue: <a href="https://www.google.com/maps?q=MOC%20Veranstaltungscenter%20M%C3%BCnchen%2C%20Lilienthalallee%2040%2C%2080939%20M%C3%BCnchen">MOC Veranstaltungscenter, Lilienthalallee 40</a> or <a href="https://www.google.com/maps?q=P%2BR%20Kieferngarten%2C%20M%C3%BCnchen">P+R Kieferngarten</a>. Before parking for the night, check the gauge: if it is under half, do a small top-up at a local station around <a href="https://www.google.com/maps/search/petrol+station+Freimann+Munich">Freimann</a> / <a href="https://www.google.com/maps/search/petrol+station+Kieferngarten+Munich">Kieferngarten</a> so the late drive to Heroldsbach is not a fuel problem. For food nearby, aim for <a href="https://www.google.com/maps?q=Restaurant%20Mykonos%2C%20Kieferngartenstra%C3%9Fe%205%2C%2080939%20M%C3%BCnchen">Restaurant Mykonos</a> (Greek, dinner from about 17:00) or <a href="https://www.google.com/maps?q=Arena%20Treff%2C%20Bauernfeindstra%C3%9Fe%2019%2C%2080939%20M%C3%BCnchen">Arena Treff</a> (pub-style food, also opens around 17:00). If you arrive early, do coffee/walk around Kieferngarten first, then eat and head to Zenith. <strong>No Munich green sticker needed if you stay in this Freimann/Kieferngarten area.</strong></p>
+      <p>Stay outside the low-emission zone and park near the venue: <a href="https://www.google.com/maps?q=MOC%20Veranstaltungscenter%20M%C3%BCnchen%2C%20Lilienthalallee%2040%2C%2080939%20M%C3%BCnchen">MOC Veranstaltungscenter, Lilienthalallee 40</a> or <a href="https://www.google.com/maps?q=P%2BR%20Kieferngarten%2C%20M%C3%BCnchen">P+R Kieferngarten</a>. For food nearby, aim for <a href="https://www.google.com/maps?q=Restaurant%20Mykonos%2C%20Kieferngartenstra%C3%9Fe%205%2C%2080939%20M%C3%BCnchen">Restaurant Mykonos</a> (Greek, dinner from about 17:00) or <a href="https://www.google.com/maps?q=Arena%20Treff%2C%20Bauernfeindstra%C3%9Fe%2019%2C%2080939%20M%C3%BCnchen">Arena Treff</a> (pub-style food, also opens around 17:00). If you arrive early, do coffee/walk around Kieferngarten first, then eat and head to Zenith. <strong>No Munich green sticker needed if you stay in this Freimann/Kieferngarten area.</strong></p>
+      <p class="fuel-note">Before parking for the night, check the gauge. If under half a tank, do a small top-up at <a href="https://www.google.com/maps/place/Aral+Tankstelle+Heidemannstra%C3%9Fe/@48.2009,11.6053,17z">Aral Heidemannstraße 70, 80939 München (Freimann)</a> or <a href="https://www.google.com/maps/place/Shell+Tankstelle+Frankfurter+Ring/@48.1925,11.5839,17z">Shell Frankfurter Ring 81, 80807 München</a> so the late drive to Heroldsbach is not a fuel problem.</p>
     </div>
   </div>
 
@@ -944,7 +983,8 @@
     <div class="time">22:15-ish</div>
     <div>
       <h3>Drive to the cabin after the concert</h3>
-      <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Zenith%20Munich%2C%20Germany&amp;destination=Am%20Herrengarten%203%2C%2091336%20Heroldsbach%2C%20Germany&amp;travelmode=driving">Zenith, Munich - Am Herrengarten 3, Heroldsbach</a>. Approx. <strong>2 h 15 min</strong>. Leave Munich with at least half a tank. If you ignored the Munich fuel check and the gauge is low, use a 24 h town station near <a href="https://www.google.com/maps/search/petrol+station+Ingolstadt+Germany">Ingolstadt</a> rather than gambling on the last hour.</p>
+      <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Zenith%20Munich%2C%20Germany&amp;destination=Am%20Herrengarten%203%2C%2091336%20Heroldsbach%2C%20Germany&amp;travelmode=driving">Zenith, Munich - Am Herrengarten 3, Heroldsbach</a>. Approx. <strong>2 h 15 min</strong>. Leave Munich with at least half a tank.</p>
+      <p class="fuel-note">If you ignored the Munich top-up and the gauge is low, use the 24 h <a href="https://www.google.com/maps/place/Aral+Tankstelle+M%C3%BCnchener+Stra%C3%9Fe+Ingolstadt/@48.7385,11.4256,17z">Aral Tankstelle, Münchener Straße 99, 85051 Ingolstadt</a> (A9 exit) rather than gambling on the last hour.</p>
     </div>
     <div class="map-embed" aria-label="Route map from Zenith Munich to Heroldsbach accommodation">
       <iframe title="Zenith Munich to Heroldsbach accommodation route" src="https://www.google.com/maps?saddr=Zenith%20Munich%2C%20Germany&amp;daddr=Am%20Herrengarten%203%2C%2091336%20Heroldsbach%2C%20Germany&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1230,11 +1270,11 @@
     </div>
   </div>
 
-  <div class="time-block">
+  <div class="time-block fuel-check">
     <div class="time">12:15</div>
     <div>
       <h3>Fuel before the Salzburg drive</h3>
-      <p>Top up before joining the long motorway run south, ideally at a town station around <a href="https://www.google.com/maps/search/petrol+station+Forchheim+Germany">Forchheim</a>, <a href="https://www.google.com/maps/search/petrol+station+Eggolsheim+Germany">Eggolsheim</a>, or on the local road out of Heroldsbach. German fuel is usually pricier than Austria/Slovenia, but this is the safety stop that keeps the 4 h drive simple. Avoid Autobahn Raststätte prices if you can.</p>
+      <p>Top up before joining the long motorway run south. Best targets: <a href="https://www.google.com/maps/place/Aral+Tankstelle+Forchheim+Bamberger+Stra%C3%9Fe/@49.7263,11.0608,17z">Aral Tankstelle, Bamberger Straße 38, 91301 Forchheim</a> or the <a href="https://www.google.com/maps/place/Autohof+Eggolsheim/@49.7706,11.0539,17z">Autohof Eggolsheim, Zur Autobahn 1, 91330 Eggolsheim</a> right at the A73 exit. German fuel is usually pricier than Austria/Slovenia, but this is the safety stop that keeps the 4 h drive simple. Avoid Autobahn Raststätte prices if you can.</p>
     </div>
   </div>
 
@@ -1392,7 +1432,8 @@
     <div class="time">17:30</div>
     <div>
       <h3>Drive Salzburg → home</h3>
-      <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Altstadtgarage%20M%C3%B6nchsberg%2C%20Salzburg&amp;destination=Na%20gmajni%2028%2C%20Loka%20pri%20Meng%C5%A1u%2C%20Slovenia&amp;travelmode=driving">Altstadtgarage - Loka pri Mengšu</a>. Approx. <strong>3 h 15 min</strong> via A10 / Tauern tunnel. Austrian vignette + separate Tauern toll. Do a gauge check before leaving Salzburg: if you have half a tank, skip Austrian fuel and fill later in Slovenia; if you are below half, make a small safety top-up around Salzburg before the A10 rather than entering the tunnel section low.</p>
+      <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Altstadtgarage%20M%C3%B6nchsberg%2C%20Salzburg&amp;destination=Na%20gmajni%2028%2C%20Loka%20pri%20Meng%C5%A1u%2C%20Slovenia&amp;travelmode=driving">Altstadtgarage - Loka pri Mengšu</a>. Approx. <strong>3 h 15 min</strong> via A10 / Tauern tunnel. Austrian vignette + separate Tauern toll.</p>
+      <p class="fuel-note">Gauge check before leaving Salzburg. With half a tank, skip Austrian fuel and fill later in Slovenia. Below half, do a safety top-up at <a href="https://www.google.com/maps/place/OMV+Tankstelle+Alpenstra%C3%9Fe+Salzburg/@47.7793,13.0689,17z">OMV Salzburg-Alpenstraße 48, 5020 Salzburg</a> before the A10, rather than entering the tunnel section low.</p>
     </div>
     <div class="map-embed" aria-label="Route map from Salzburg to home">
       <iframe title="Salzburg to home route" src="https://www.google.com/maps?saddr=Altstadtgarage%20M%C3%B6nchsberg%2C%20Salzburg&amp;daddr=Na%20gmajni%2028%2C%20Loka%20pri%20Meng%C5%A1u%2C%20Slovenia&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
