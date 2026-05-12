@@ -172,6 +172,8 @@
       top: 0;
       left: calc(100% + 14px);
       width: 280px;
+      max-width: calc(100vw - 32px);
+      min-width: 0;
       padding: 14px 14px 12px;
       border: 1px solid var(--line);
       border-radius: 10px;
@@ -179,6 +181,8 @@
       box-shadow: var(--shadow);
       z-index: 30;
       color: var(--ink);
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     .weather-popup::before {
@@ -265,6 +269,8 @@
       scrollbar-width: thin;
       scrollbar-color: var(--line) transparent;
       -webkit-overflow-scrolling: touch;
+      min-width: 0;
+      max-width: 100%;
     }
 
     .weather-more::-webkit-scrollbar {
@@ -532,6 +538,106 @@
       font-size: 0.9rem;
     }
 
+    .local-photo-grid img {
+      cursor: zoom-in;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .local-photo-grid img:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(67, 48, 30, 0.18);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(20, 16, 12, 0.92);
+      z-index: 1000;
+      touch-action: pan-y;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: min(100%, 1200px);
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      border-radius: 6px;
+      border: 0;
+      background: transparent;
+      object-fit: contain;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 1.6rem;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.15s ease;
+    }
+
+    .lightbox-btn:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+
+    .lightbox-close {
+      top: 16px;
+      right: 16px;
+      transform: none;
+      width: 40px;
+      height: 40px;
+      font-size: 1.3rem;
+    }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 540px) {
+      .lightbox {
+        padding: 12px;
+      }
+      .lightbox-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+      }
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+      .lightbox-close { top: 8px; right: 8px; }
+    }
+
     @media (max-width: 760px) {
       .page {
         width: 100%;
@@ -579,7 +685,8 @@
 
       .weather-popup {
         position: static;
-        width: auto;
+        width: 100%;
+        max-width: 100%;
         margin-top: 10px;
         box-shadow: none;
       }
@@ -597,6 +704,36 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
         margin: 12px 0;
+      }
+
+      p.local-photo-grid {
+        display: flex;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 4px 4px 10px;
+        margin: 12px -4px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--line) transparent;
+        -webkit-overflow-scrolling: touch;
+        scroll-padding: 4px;
+      }
+
+      p.local-photo-grid::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      p.local-photo-grid::-webkit-scrollbar-thumb {
+        background: var(--line);
+        border-radius: 2px;
+      }
+
+      p.local-photo-grid img {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 260px;
+        scroll-snap-align: center;
       }
 
       .time-block {
@@ -680,13 +817,16 @@
         font-size: 1.5rem;
       }
 
-      p:has(img),
-      p.local-photo-grid {
+      p:has(img) {
         grid-template-columns: 1fr;
       }
 
       img {
         height: 200px;
+      }
+
+      p.local-photo-grid img {
+        height: 240px;
       }
 
       .detail-grid {
@@ -1231,6 +1371,15 @@
 
     <p class="footer-note">Built from itinerary.md</p>
   </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Photo viewer" aria-hidden="true">
+    <img class="lightbox-img" id="lightboxImg" alt="">
+    <button class="lightbox-btn lightbox-close" type="button" aria-label="Close">✕</button>
+    <button class="lightbox-btn lightbox-prev" type="button" aria-label="Previous">‹</button>
+    <button class="lightbox-btn lightbox-next" type="button" aria-label="Next">›</button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
   <script>
     const weatherLabels = [
       { codes: [0], text: "Clear", kind: "is-clear", icon: "☀️" },
@@ -1351,6 +1500,76 @@
       if (event.key !== "Escape") return;
       document.querySelectorAll(".weather[open]").forEach((card) => { card.open = false; });
     });
+
+    (function () {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const counter = document.getElementById("lightboxCounter");
+      const prevBtn = lightbox.querySelector(".lightbox-prev");
+      const nextBtn = lightbox.querySelector(".lightbox-next");
+      const closeBtn = lightbox.querySelector(".lightbox-close");
+      let group = [];
+      let index = 0;
+
+      function show(i) {
+        if (!group.length) return;
+        index = (i + group.length) % group.length;
+        const img = group[index];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || "";
+        counter.textContent = `${index + 1} / ${group.length}`;
+        const onlyOne = group.length <= 1;
+        prevBtn.style.display = onlyOne ? "none" : "";
+        nextBtn.style.display = onlyOne ? "none" : "";
+        counter.style.display = onlyOne ? "none" : "";
+      }
+
+      function open(target) {
+        const gridEl = target.closest(".local-photo-grid");
+        group = gridEl ? Array.from(gridEl.querySelectorAll("img")) : [target];
+        show(group.indexOf(target));
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function close() {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        lightboxImg.src = "";
+      }
+
+      document.querySelectorAll(".local-photo-grid img").forEach((img) => {
+        img.addEventListener("click", () => open(img));
+      });
+
+      prevBtn.addEventListener("click", (e) => { e.stopPropagation(); show(index - 1); });
+      nextBtn.addEventListener("click", (e) => { e.stopPropagation(); show(index + 1); });
+      closeBtn.addEventListener("click", (e) => { e.stopPropagation(); close(); });
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox || event.target === lightboxImg) close();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (!lightbox.classList.contains("is-open")) return;
+        if (event.key === "Escape") close();
+        else if (event.key === "ArrowLeft") show(index - 1);
+        else if (event.key === "ArrowRight") show(index + 1);
+      });
+
+      let touchStartX = null;
+      lightbox.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      lightbox.addEventListener("touchend", (e) => {
+        if (touchStartX == null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
+        touchStartX = null;
+      }, { passive: true });
+    })();
   </script>
 </body>
 </html>
