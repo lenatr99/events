@@ -684,15 +684,42 @@
       }
 
       .weather-popup {
-        position: static;
-        width: 100%;
-        max-width: 100%;
-        margin-top: 10px;
-        box-shadow: none;
+        position: fixed;
+        top: auto;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        z-index: 1000;
+        max-height: 75vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        box-shadow: 0 -14px 40px rgba(67, 48, 30, 0.28);
+        padding-top: 22px;
       }
 
       .weather-popup::before {
-        display: none;
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 42px;
+        height: 4px;
+        border-radius: 999px;
+        background: var(--line);
+        border: 0;
+      }
+
+      .weather[open]::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 16, 12, 0.4);
+        z-index: 999;
+        pointer-events: none;
       }
 
       .day-content > h1 {
@@ -881,7 +908,7 @@
     <div class="time">09:00</div>
     <div>
       <h3>Drive from home to Munich</h3>
-      <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Na%20gmajni%2028%2C%20Loka%20pri%20Meng%C5%A1u%2C%20Slovenia&amp;destination=Zenith%20Munich%2C%20Germany&amp;travelmode=driving">Na gmajni 28, Loka pri Mengšu - Zenith, Munich</a>. Approx. <strong>4 h 30 min</strong> without real traffic. Because Thursday, 14 May is Ascension Day in Germany and Austria, treat it like long-weekend traffic and leave in the morning. Recommended: <strong>09:00</strong>. Latest comfortable leave: <strong>10:00</strong>.</p>
+      <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Na%20gmajni%2028%2C%20Loka%20pri%20Meng%C5%A1u%2C%20Slovenia&amp;destination=Zenith%20Munich%2C%20Germany&amp;travelmode=driving">Na gmajni 28, Loka pri Mengšu - Zenith, Munich</a>. Approx. <strong>4 h 30 min</strong> driving time before traffic or fuel. Leave home with a full tank of regular 95 / E10; the Jeep Renegade 4xe has a small ~36 L petrol tank, so plan fuel conservatively rather than stretching it. Because Thursday, 14 May is Ascension Day in Germany and Austria, treat it like long-weekend traffic and leave in the morning. Recommended: <strong>09:00</strong>. Latest comfortable leave: <strong>10:00</strong>.</p>
     </div>
     <div class="map-embed" aria-label="Route map from home to Zenith Munich">
       <iframe title="Home to Zenith Munich route" src="https://www.google.com/maps?saddr=Na%20gmajni%2028%2C%20Loka%20pri%20Meng%C5%A1u%2C%20Slovenia&amp;daddr=Zenith%20Munich%2C%20Germany&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -889,10 +916,18 @@
   </div>
 
   <div class="time-block">
-    <div class="time">15:00-ish</div>
+    <div class="time">12:00-ish</div>
+    <div>
+      <h3>Fuel + stretch stop before Germany</h3>
+      <p>Make this a planned stop, not an emergency one. Best practical target: an Austrian town-side station around <a href="https://www.google.com/maps/search/petrol+station+Mondsee+Austria">Mondsee</a> / <a href="https://www.google.com/maps/search/petrol+station+Salzburg+Austria">Salzburg</a>, before the final run into Munich. It is not as cheap as Slovenia, but it avoids arriving in Munich on a low tank; skip German Autobahn fuel unless you have no choice.</p>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time">15:30-ish</div>
     <div>
       <h3>Arrive in Munich</h3>
-      <p>Stay outside the low-emission zone and park near the venue: <a href="https://www.google.com/maps?q=MOC%20Veranstaltungscenter%20M%C3%BCnchen%2C%20Lilienthalallee%2040%2C%2080939%20M%C3%BCnchen">MOC Veranstaltungscenter, Lilienthalallee 40</a> or <a href="https://www.google.com/maps?q=P%2BR%20Kieferngarten%2C%20M%C3%BCnchen">P+R Kieferngarten</a>. For food nearby, aim for <a href="https://www.google.com/maps?q=Restaurant%20Mykonos%2C%20Kieferngartenstra%C3%9Fe%205%2C%2080939%20M%C3%BCnchen">Restaurant Mykonos</a> (Greek, dinner from about 17:00) or <a href="https://www.google.com/maps?q=Arena%20Treff%2C%20Bauernfeindstra%C3%9Fe%2019%2C%2080939%20M%C3%BCnchen">Arena Treff</a> (pub-style food, also opens around 17:00). If you arrive early, do coffee/walk around Kieferngarten first, then eat and head to Zenith. <strong>No Munich green sticker needed if you stay in this Freimann/Kieferngarten area.</strong></p>
+      <p>Stay outside the low-emission zone and park near the venue: <a href="https://www.google.com/maps?q=MOC%20Veranstaltungscenter%20M%C3%BCnchen%2C%20Lilienthalallee%2040%2C%2080939%20M%C3%BCnchen">MOC Veranstaltungscenter, Lilienthalallee 40</a> or <a href="https://www.google.com/maps?q=P%2BR%20Kieferngarten%2C%20M%C3%BCnchen">P+R Kieferngarten</a>. Before parking for the night, check the gauge: if it is under half, do a small top-up at a local station around <a href="https://www.google.com/maps/search/petrol+station+Freimann+Munich">Freimann</a> / <a href="https://www.google.com/maps/search/petrol+station+Kieferngarten+Munich">Kieferngarten</a> so the late drive to Heroldsbach is not a fuel problem. For food nearby, aim for <a href="https://www.google.com/maps?q=Restaurant%20Mykonos%2C%20Kieferngartenstra%C3%9Fe%205%2C%2080939%20M%C3%BCnchen">Restaurant Mykonos</a> (Greek, dinner from about 17:00) or <a href="https://www.google.com/maps?q=Arena%20Treff%2C%20Bauernfeindstra%C3%9Fe%2019%2C%2080939%20M%C3%BCnchen">Arena Treff</a> (pub-style food, also opens around 17:00). If you arrive early, do coffee/walk around Kieferngarten first, then eat and head to Zenith. <strong>No Munich green sticker needed if you stay in this Freimann/Kieferngarten area.</strong></p>
     </div>
   </div>
 
@@ -900,16 +935,16 @@
     <div class="time">19:30</div>
     <div>
       <h3>Madison Beer concert</h3>
-      <p><a href="https://www.ticketmaster.de/event/madison-beer-the-locket-tour-tickets/428796075?language=en-us">Ticketmaster event</a> / <a href="https://www.ticketmaster.de/user/order/jTcbO-jrZe979DCuoKMAIN1Eb7GUT8xXsg%3D%3D/428796075/view">tickets</a> at <a href="https://maps.app.goo.gl/vTjsR9ZDZPHaGqyS9">Zenith, Munich</a>.</p>
+      <p><a href="https://www.ticketmaster.de/event/madison-beer-the-locket-tour-tickets/428796075?language=en-us">Ticketmaster event</a> / <a href="https://www.ticketmaster.de/user/order/jTcbO-jrZe979DCuoKMAIN1Eb7GUT8xXsg%3D%3D/428796075/view">tickets</a> at <a href="https://maps.app.goo.gl/vTjsR9ZDZPHaGqyS9">Zenith, Munich</a>. Ticketed start <strong>19:30</strong>. Madison's set is about <strong>1 h 20 min</strong>, but the Europe/UK shows also have support, so assume Madison starts closer to <strong>20:30-20:45</strong> and the night wraps around <strong>21:50-22:15</strong>.</p>
     </div>
     <img class="concert-image" src="../images/madison.png" alt="Madison Beer concert">
   </div>
 
   <div class="time-block">
-    <div class="time">22:00-ish</div>
+    <div class="time">22:15-ish</div>
     <div>
       <h3>Drive to the cabin after the concert</h3>
-      <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Zenith%20Munich%2C%20Germany&amp;destination=Am%20Herrengarten%203%2C%2091336%20Heroldsbach%2C%20Germany&amp;travelmode=driving">Zenith, Munich - Am Herrengarten 3, Heroldsbach</a>. Approx. <strong>2 h 15 min</strong>.</p>
+      <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Zenith%20Munich%2C%20Germany&amp;destination=Am%20Herrengarten%203%2C%2091336%20Heroldsbach%2C%20Germany&amp;travelmode=driving">Zenith, Munich - Am Herrengarten 3, Heroldsbach</a>. Approx. <strong>2 h 15 min</strong>. Leave Munich with at least half a tank. If you ignored the Munich fuel check and the gauge is low, use a 24 h town station near <a href="https://www.google.com/maps/search/petrol+station+Ingolstadt+Germany">Ingolstadt</a> rather than gambling on the last hour.</p>
     </div>
     <div class="map-embed" aria-label="Route map from Zenith Munich to Heroldsbach accommodation">
       <iframe title="Zenith Munich to Heroldsbach accommodation route" src="https://www.google.com/maps?saddr=Zenith%20Munich%2C%20Germany&amp;daddr=Am%20Herrengarten%203%2C%2091336%20Heroldsbach%2C%20Germany&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -917,7 +952,7 @@
   </div>
 
   <div class="time-block">
-    <div class="time">00:15-ish</div>
+    <div class="time">00:30-ish</div>
     <div>
       <h3>Arrive and self check-in</h3>
       <p>The host confirmed late arrival is fine. Lockbox is at the cabin entrance; code is in the accommodation details below.</p>
@@ -1196,7 +1231,15 @@
   </div>
 
   <div class="time-block">
-    <div class="time">12:30</div>
+    <div class="time">12:15</div>
+    <div>
+      <h3>Fuel before the Salzburg drive</h3>
+      <p>Top up before joining the long motorway run south, ideally at a town station around <a href="https://www.google.com/maps/search/petrol+station+Forchheim+Germany">Forchheim</a>, <a href="https://www.google.com/maps/search/petrol+station+Eggolsheim+Germany">Eggolsheim</a>, or on the local road out of Heroldsbach. German fuel is usually pricier than Austria/Slovenia, but this is the safety stop that keeps the 4 h drive simple. Avoid Autobahn Raststätte prices if you can.</p>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time">12:45</div>
     <div>
       <h3>Drive Heroldsbach → Salzburg</h3>
       <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Am%20Herrengarten%203%2C%2091336%20Heroldsbach%2C%20Germany&amp;destination=Linzer%20Bundesstra%C3%9Fe%201%2C%205020%20Salzburg%2C%20Austria&amp;travelmode=driving">Heroldsbach - Linzer Bundesstraße 1, Salzburg</a>. Approx. <strong>4 h</strong> via the A9 / A8. You'll need an Austrian motorway vignette as soon as you cross into Austria.</p>
@@ -1207,7 +1250,7 @@
   </div>
 
   <div class="time-block">
-    <div class="time">16:00</div>
+    <div class="time">17:00-ish</div>
     <div>
       <h3>Check-in at Schloss Rauchenbichl</h3>
       <p>Check-in window is <strong>16:00 - 20:00</strong>, host greets in person. If you'll be later than 20:00, message Andrea in advance — late check-in is +€25. Salzburg city guest registration is already filed; ask Andrea for the guest cards on arrival (free public transport).</p>
@@ -1349,7 +1392,7 @@
     <div class="time">17:30</div>
     <div>
       <h3>Drive Salzburg → home</h3>
-      <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Altstadtgarage%20M%C3%B6nchsberg%2C%20Salzburg&amp;destination=Na%20gmajni%2028%2C%20Loka%20pri%20Meng%C5%A1u%2C%20Slovenia&amp;travelmode=driving">Altstadtgarage - Loka pri Mengšu</a>. Approx. <strong>3 h 15 min</strong> via A10 / Tauern tunnel. Austrian vignette + separate Tauern toll. Fill up before the tunnel — fuel is cheaper in Austria than in Slovenia.</p>
+      <p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Altstadtgarage%20M%C3%B6nchsberg%2C%20Salzburg&amp;destination=Na%20gmajni%2028%2C%20Loka%20pri%20Meng%C5%A1u%2C%20Slovenia&amp;travelmode=driving">Altstadtgarage - Loka pri Mengšu</a>. Approx. <strong>3 h 15 min</strong> via A10 / Tauern tunnel. Austrian vignette + separate Tauern toll. Do a gauge check before leaving Salzburg: if you have half a tank, skip Austrian fuel and fill later in Slovenia; if you are below half, make a small safety top-up around Salzburg before the A10 rather than entering the tunnel section low.</p>
     </div>
     <div class="map-embed" aria-label="Route map from Salzburg to home">
       <iframe title="Salzburg to home route" src="https://www.google.com/maps?saddr=Altstadtgarage%20M%C3%B6nchsberg%2C%20Salzburg&amp;daddr=Na%20gmajni%2028%2C%20Loka%20pri%20Meng%C5%A1u%2C%20Slovenia&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
