@@ -1,0 +1,17 @@
+{
+  "title": "ISMB 2026 Washington, DC",
+  "lang": "en",
+  "timezone": "America/New_York",
+  "output": "itinerary.html",
+  "footerNote": "Built from washington2026/itinerary/days/*.md using locally mirrored ISMB 2026 sources",
+  "days": [
+    "days/2026-07-11.md",
+    "days/2026-07-12.md",
+    "days/2026-07-13.md",
+    "days/2026-07-14.md",
+    "days/2026-07-15.md",
+    "days/2026-07-16.md",
+    "days/2026-07-17.md",
+    "days/2026-07-18.md"
+  ]
+}

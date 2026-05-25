@@ -1,0 +1,130 @@
+ Procesi
+ Domov
+ Zasedenost vozil
+ Lena Trnovec 
+Fakulteta za računalništvo in informatiko
+Potni nalog Oddaja vloge
+Izbira razporeditve
+Raziskovalec - 80,00% - 50001493 (H017004)
+Podrobnosti predlagatelja
+Naziv
+Lena Trnovec
+E-naslov
+LENA.TRNOVEC@FRI.UNI-LJ.SI
+Telefon
+Ni podatka
+Naslov
+Na gmajni 000028
+1234 Mengeš
+Oddelek
+Laboratorij za bioinformatiko
+Delovno mesto
+Raziskovalec
+Nadrejeni
+prof. dr. Blaž Zupan
+Odgovorna oseba
+izr. prof. dr. Mojca Ciglarič
+Vrsta vloge
+Vlogo lahko oddate do 12. ure 1 delovni dan pred odhodom oziroma najmanj 10 dni pred odhodom, če je zahtevana akontacija.
+
+Podatki o službenem potovanju
+Kraj potovanja
+Država
+Datum odhoda
+dd. mm. llll
+Ura odhoda
+
+Datum prihoda
+dd. mm. llll
+Ura prihoda
+
+Namen
+Navedba organizacije/dogodka
+Vnesite naziv organizacije/dogodka in morebitni naslov ustreznega članka/prispevka
+Število dni dopusta
+Terenski dodatek
+Dni skupaj
+0
+V času odsotnosti bo pedagoški proces nemoteno izvajan na naslednji način
+V prilogi dodajte dokazilo o ustreznosti službene poti. To je lahko letak za konferenco, kopija povabila na predavanje ipd.
+
+Način potovanja in stroški poti
+Uporaba vozila
+Relacija
+Registrska številka avtomobila
+Število kilometrov
+km
+Prevoz na dislocirane enote.
+Na službeni poti ne bom uveljavljal stroškov.
+Vnesite ocenjene stroške vaše službene poti oziroma označite, da stroškov ne boste uveljavljali.
+Stroški, ki jih delodajalec poravna vnaprej so praviloma stroški za letalsko karto, včasih pa tudi stroški prenočevanja in kotizacije.
+
+Strošek
+Znesek
+Kilometrina
+EUR
+Ostali stroški avtomobila
+EUR
+Cestnine, tunelnine, parkirnine …
+Letalo
+EUR
+Delodajalec poravna vnaprej - naročilnica
+Vlak
+EUR
+Delodajalec poravna vnaprej - naročilnica
+Taksi
+EUR
+Delodajalec poravna vnaprej - naročilnica
+Rent-a-car
+EUR
+Delodajalec poravna vnaprej - naročilnica
+Avtobus
+EUR
+Delodajalec poravna vnaprej - naročilnica
+Namestitev
+EUR
+Delodajalec poravna vnaprej - naročilnica
+Kotizacija
+EUR
+Delodajalec poravna vnaprej - naročilnica
+Stroški reprezentance
+EUR
+Zavarovanje na poti
+EUR
+Delodajalec poravna vnaprej - naročilnica
+Drugi stroški
+EUR
+Drugi javni prevoz
+EUR
+Opis stroška
+Delodajalec poravna vnaprej - naročilnica
+Dnevnice
+0,00
+EUR
+Skupaj
+0,00
+EUR
+Krije organizator
+0,00
+EUR
+Če del stroškov krije organizator, vnesite višino stroškov, ki so kriti z njegove strani.
+Skupaj delodajalec
+0,00
+EUR
+Plačano vnaprej
+0,00
+EUR
+Akontacija za založena sredstva. Znesek bo izplačan z datumom potrditve vloge.
+Akontacija za stroške na poti
+0,00
+EUR
+Akontacija za finančno razbremenitev stroškov na poti. Znesek bo izplačan 3 dni pred odhodom.
+Predvideno povračilo
+0,00
+EUR
+Sredstva plačila
+Priponke procesa
+Komentarji
+Vpišite nov komentar.
+  
+Procesi © 2026

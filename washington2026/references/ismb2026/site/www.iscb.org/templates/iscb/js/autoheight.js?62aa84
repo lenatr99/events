@@ -1,0 +1,27 @@
+(function () {
+	//Listen for height messages from embedded pages
+	window.addEventListener('message', function (e) {
+		const d = e.data;
+		if (!d || d.type !== 'iscb-iframe-height' || !d.src) return;
+		let target = null;
+		try {
+			const msgURL = new URL(d.src);
+			//Find the iframe whose src matches the message sender (origin + full path + query)
+			const iframes = document.querySelectorAll('iframe.autoheight-iframe');
+			for (const f of iframes) {
+				try {
+					const fURL = new URL(f.src, document.baseURI);
+					if (fURL.origin === msgURL.origin && fURL.pathname === msgURL.pathname && fURL.search === msgURL.search) {
+						target = f;
+						break;
+					}
+				} catch (_) {}
+			}
+		} catch (_) {}
+		if (!target) return;
+		const h = parseInt(d.height, 10);
+		if (!isNaN(h) && h > 0) {
+			target.style.height = Math.max(200, h) + 'px'; // floor to something sensible
+		}
+	}, false);
+})();

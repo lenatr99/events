@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <base target="_blank">
+  <style>
+{{styles}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main>
+{{days}}
+    </main>
+
+    <p class="footer-note">{{footerNote}}</p>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Photo viewer" aria-hidden="true">
+    <img class="lightbox-img" id="lightboxImg" alt="">
+    <button class="lightbox-btn lightbox-close" type="button" aria-label="Close">✕</button>
+    <button class="lightbox-btn lightbox-prev" type="button" aria-label="Previous">‹</button>
+    <button class="lightbox-btn lightbox-next" type="button" aria-label="Next">›</button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+  <script>
+{{weatherScript}}
+
+{{lightboxScript}}
+  </script>
+</body>
+</html>
